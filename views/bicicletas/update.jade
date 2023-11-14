@@ -1,28 +1,41 @@
 extends ../layout
 
 block content
-    a(href='/bicicletas') Volver
-    br
-    br
-    br
+    h1 Actualizacion de datos
+    hr
+    .row
+        .col-md-8(style='margin: 1%;')
+                 form.card.col-md-12.text-xs-center(action='/bicicletas/' + bici.id + '/update' method='post' style='padding: 2%;')
+                    .form-group
+                        label(for='id') Id:
+                        input.form-control(type='text'  name='id' value=bici.id required)
 
-    h1 Modificar Bicicleta
-    
-    form(action='/bicicletas/' + bici.id + '/update' method='post')
-        label(for='id') ID:
-        input#id(type='text' name='id' value=bici.id)
-        br
-        label(for='color') Color:
-        input#color(type='text' name='color' value=bici.color)
-        br
-        label(for='modelo') Modelo:
-        input#modelo(type='text' name='modelo' value=bici.modelo)
-        br
-        label(for='lat') Latitud:
-        input#lat(type='text' name='lat' value=bici.ubicacion[0])
-        br
-        label(for='lng') Longitud:
-        input#lng(type='text' name='lng' value=bici.ubicacion[1])
-        br
-        br
-        input.btn(type='submit' value='OK')
+                    .form-group
+                        label(for='color')  Color:
+                        input.form-control(type='text' name='color' value=bici.color required)
+
+                    .form-group
+                        label(for='modelo') Modelo:
+                        input.form-control(name='modelo' rows='4' value=bici.modelo required)
+                    
+                    .form-group
+                        label(for='lat') Latitud :
+                        input.form-control(name='lat' type='text' value=bici.ubicacion[0] required)
+
+                    .form-group
+                        label(for='lng') Longitud :
+                        input.form-control(name='lng' type='text' value=bici.ubicacion[1] required)
+                    hr
+                    button.btn.btn-primary(type='submit' value='Enviar') Actualizar 
+
+        .col-md-3(style='margin: 2%;')
+            h2 Sistema de posicionamiento de Bicicletas
+            hr
+            img.d-block.w-100(src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVcMeWBcA2XYDHMIWzM-g7gUW7BBh0nvfX6g&usqp=CAU')
+            hr
+            p.text-md-center  La información de posición por GPS se puede utilizar en aplicaciones móviles o sistemas integrados en la bicicleta para proporcionar datos de ubicación precisos y relevantes.
+   
+
+
+
+

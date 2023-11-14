@@ -2,5 +2,8 @@ extends layout
 
 block content
   h1= message
-  h2= error.status
-  pre #{error.stack}
+  .row
+    .col-md-10(style='margin: 1%;')
+      h2= error.status
+    .col-md-10   
+      pre #{error.stack}
