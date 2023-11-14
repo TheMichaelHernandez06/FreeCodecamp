@@ -1,5 +1,69 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+
+  //leaflet para los mapas
+  link(rel='stylesheet', href='https://unpkg.com/leaflet/dist/leaflet.css')
+  script(src='https://unpkg.com/leaflet/dist/leaflet.js')
+  header
+
+  // navbar de la pagina  
+  nav.navbar.navbar-expand-lg.bg-body-tertiary
+      .container-fluid
+        a.navbar-brand(href='#') | Proyecto Node, Express, Leaflet - 2 | 
+        button.navbar-toggler(type='button', data-bs-toggle='collapse', data-bs-target='#navbarScroll', aria-controls='navbarScroll', aria-expanded='false', aria-label='Toggle navigation')
+          span.navbar-toggler-icon
+        #navbarScroll.collapse.navbar-collapse
+          ul.navbar-nav.me-auto.my-2.my-lg-0.navbar-nav-scroll(style='--bs-scroll-height: 100px;')
+            li.nav-item
+              a.nav-link.active(aria-current='page', href='#') Inicio
+            li.nav-item
+              a.nav-link(href='#') Usuarios
+            li.nav-item.dropdown
+              a.nav-link.dropdown-toggle(href='#', role='button', data-bs-toggle='dropdown', aria-expanded='false')
+                | Opciones
+              ul.dropdown-menu
+                li
+                  a.dropdown-item(href='#') Reporte
+                li
+                  a.dropdown-item(href='#') Estadisticas
+                li
+                  hr.dropdown-divider
+                li
+                  a.dropdown-item(href='#') Asesorias
+          form.d-flex(role='search')
+            input.form-control.me-2(type='search', placeholder='Search', aria-label='Search')
+            button.btn.btn-outline-success(type='submit') Buscar
+  
+    //titulo a manera de p estilizado
+  br  
+  // titulo azul de pagian
+  a.btn.btn-primary.disabled.placeholder.col-11(aria-disabled='true',style='display: block; margin: 0 auto; padding:1%;')  Proyecto Node - 2
+
+    //contenedor principal de la pagina           
+  .row
+    .container
+      #map(style='height: 400px;')
+      .card.col-md-7(style='margin:2%')
+        .card-body
+          h5.card-title Card title
+          p.card-text
+            | Some quick example text to build on the card title and make up the bulk of the card&apos;s content.
+          a.btn.btn-primary(href='#') Go somewhere
+
+      .card.col-md-4(style='margin:2%')
+        .card-body
+          h5.card-title Card title
+          p.card-text
+            | Some quick example text to build on the card title and make up the bulk of the card&apos;s content.
+          a.btn.btn-primary(href='#') Go somewh
+
+script.
+      var map = L.map('map').setView([51.505, -0.09], 13);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+      }).addTo(map);
+
+
+
+
