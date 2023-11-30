@@ -5,6 +5,8 @@ block content
   //leaflet para los mapas
   link(rel='stylesheet', href='https://unpkg.com/leaflet/dist/leaflet.css')
   script(src='https://unpkg.com/leaflet/dist/leaflet.js')
+  script(src='https://code.jquery.com/jquery-3.6.4.min.js')
+
   header
 
    
@@ -17,7 +19,7 @@ block content
       h1 Mapa Leaflet Sistema Bicicletas
       .card.col-md-8(style='text-align: center;')
         .card-body
-          #map(style='height: 400px;')
+          #map(style='height: 420px;')
           h5.card-title Sistema Online GPS para Bicicletas
           p.card-text
             | Podras ver las Bicicletas en el sistema de manera remota por medio de un GPS incorporado.
@@ -35,10 +37,24 @@ block content
     
     script(src='https://unpkg.com/leaflet@1.7.1/dist/leaflet.js', integrity='sha384-jqeVbP1V8FHUjEVjHkEBusvZNkkRqPzv4L+8Pqxf3eG8njQp2PVRJpF2pbGL4VkS', crossorigin='')
     script.
-        var map = L.map('map').setView([51.505, -0.09], 13);
+        var map = L.map('map').setView([4.56903431435888, -74.14303624660857],15);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© OpenStreetMap contributors'
         }).addTo(map);
+        $.ajax({
+          dataType: "json",
+          url: "api/bicicletas",
+          success: function(result) {
+            console.log(result);
+            result.bicicletas.forEach(function(bici) {
+              // Agregar marcadores para cada bicicleta
+              L.marker([bici.ubicacion[0], bici.ubicacion[1]], { title: bici.id }).addTo(map);
+            });
+          },
+          error: function(jqXHR, textStatus, errorThrown) {
+            console.error('Error en la solicitud AJAX:', textStatus, errorThrown);
+          }
+        });
 
 
 

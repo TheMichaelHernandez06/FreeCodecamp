@@ -33,19 +33,16 @@ bicicleta.removeById = function(aBiciId){
 }
 
 
-
-
-
 //se añaden dos objetos al proyecto por defecto
 // Creación de instancias de bicicleta
-var a = new bicicleta(1, 'azul', 'montaña', [-34.6214212, -58.5658259]);
-var b = new bicicleta(2, 'rojo', 'carreras', [-34.6214212, -58.5658259]);
-var c = new bicicleta(3, 'verde', 'urbana', [-34.6123456, -58.5789123]);
-var d = new bicicleta(4, 'amarillo', 'plegable', [-34.6156789, -58.5687654]);
-var e = new bicicleta(5, 'negro', 'eléctrica', [-34.6189876, -58.5634567]);
-var f = new bicicleta(6, 'blanco', 'híbrida', [-34.6198765, -58.5623456]);
-var g = new bicicleta(7, 'morado', 'montaña', [-34.6207654, -58.5612345]);
-var h = new bicicleta(8, 'naranja', 'carreras', [-34.6216543, -58.5601234]);
+var a = new bicicleta(1, 'azul', 'montaña', [4.586274249612838, -74.16364822016423]);
+var b = new bicicleta(2, 'rojo', 'carreras', [4.568325814990052, -74.14712310343425]);
+var c = new bicicleta(3, 'verde', 'urbana', [4.569447605334042, -74.14505006011689]);
+var d = new bicicleta(4, 'amarillo', 'plegable', [4.564429055951468, -74.13717249551084]);
+var e = new bicicleta(5, 'negro', 'eléctrica', [4.570156103594268, -74.15061766216927]);
+var f = new bicicleta(6, 'blanco', 'híbrida', [4.572163511528213, -74.13036106746802]);
+var g = new bicicleta(7, 'morado', 'montaña', [4.5664955217141365, -74.15067689197834]);
+var h = new bicicleta(8, 'naranja', 'carreras', [4.57700488398938, -74.13847555131034]);
 
 bicicleta.add(a);
 bicicleta.add(b);
